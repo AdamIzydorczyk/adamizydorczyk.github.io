@@ -1,5 +1,6 @@
 ---
 title: "SQL existing checking rediscovered"
+classes: wide
 categories:
 - programming
 tags:

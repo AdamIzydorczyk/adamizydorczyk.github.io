@@ -1,5 +1,6 @@
 ---
 title: "Adventure with Ratpack and PostgreSQL R2DBC - The Beginning"
+classes: wide
 categories:
 - programming
 tags:

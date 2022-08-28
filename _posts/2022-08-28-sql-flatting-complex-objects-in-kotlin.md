@@ -1,5 +1,6 @@
 ---
 title: "Flattening of complex objects in Kotlin"
+classes: wide
 categories:
 - programming
 tags:
