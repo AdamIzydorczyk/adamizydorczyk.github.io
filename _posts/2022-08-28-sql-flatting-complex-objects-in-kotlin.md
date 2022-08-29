@@ -10,7 +10,8 @@ tags:
 Recently I had to map complex object to flat structure without nesting.
 
 To not do to do it manually for every type, I prepared simple recursive solution based on reflection.
-
+#### Versions
+- `kotlin:1.6.21`
 #### Implementation
 ```kotlin
 val listOfTypesToFetch = listOf(String::class, Long::class).map { it.createType() }

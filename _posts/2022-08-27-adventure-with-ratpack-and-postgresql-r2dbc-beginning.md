@@ -17,11 +17,11 @@ Additionally to tests instead of JDBC based connection i choosed R2DBC driver to
 
 ---
 
-#### Libraries
-
+#### Versions
+- `kotlin:1.6.21`
 - `ratpack-core:1.9.0`
 - `r2dbc-postgresql:0.8.12.RELEASE`
-- `spring-boot-starter-data-jdbc:1.9.0`
+- `spring-boot-starter-data-jdbc:2.7.2`
 - `spring-boot-starter-data-web:2.7.2`
 
 ### Implementation

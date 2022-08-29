@@ -38,7 +38,7 @@ author:
   name             : "Adam Izydorczyk"
   avatar           : "/assets/images/avatar.jpeg"
   bio              : "***Hello world!*** I’ve come to the conclusion, that too many thing that I faced on my programming are lost in time. So this blog it is some solution to fight with it."
-  location         : "Poznań"
+  location         : "Poznań, Poland"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -46,12 +46,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/AdamIzydorczyk"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/adamflorianizydorczyk"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/adamflorianizydorczyk"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/adam-izydorczyk-050a28137"
 
 # Site Footer
 footer:
@@ -62,13 +59,9 @@ footer:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/AdamIzydorczyk"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      url: "https://www.facebook.com/adamflorianizydorczyk"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/adamflorianizydorczyk"
-
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/adam-izydorczyk-050a28137"
 
 # Reading Files
 include:
