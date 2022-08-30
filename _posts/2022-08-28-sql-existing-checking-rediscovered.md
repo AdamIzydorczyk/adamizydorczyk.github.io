@@ -13,14 +13,20 @@ I found out, that by whole of my professional career I was doing something so si
 
 It usually looked like this with checking that result is greater than 0.
 
+---
+
+#### Versions
+- `postgres:14.5`
+
+---
 #### Example
-```postgres
+```sql
 select count(t) from test t where t.foo = :foo 
 ```
 
 For that query execution plan looks like this
 
-```postgres
+```sql
 explain analyse select count(t) from test t where t.foo = :foo 
 
 Aggregate  (cost=2746.82..2746.83 rows=1 width=8) (actual time=9.424..9.424 rows=1 loops=1)
@@ -32,7 +38,7 @@ Execution Time: 9.442 ms
 ```
 Unfortunately aggregation is relatively expensive operation for that use case, but by little improvement it can be done better.
 #### Alternative
-```postgres
+```sql
 explain analyse 1 from test t where t.foo = :foo limit 1
 
 Limit  (cost=0.00..2746.81 rows=1 width=4) (actual time=0.008..0.008 rows=1 loops=1)

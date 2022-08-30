@@ -12,10 +12,14 @@ tags:
 As part of the search for optimal solutions, I've been looking for a way to get a different value from the database once a day with the lowest possible cost.
 A first thought that was born was to move process of random selection to the database instead of application.
 
+---
+
 #### Versions
 - `kotlin:1.6.21`
 - `postgres:14.5`
 - `hibernate:5.6.10`
+
+---
 
 ### Procedure
 ```sql
@@ -26,21 +30,22 @@ perform setseed(seed);
 open random_result for 
 select
 random_value.id,
-random_value.foo,
+random_value.foo
 from
 (
   select
     t.id, t.foo
 from
 test t offset floor(random() * ( select count(*) from test ))
-limit 1 ) as random_value
+limit 1 ) 
+as random_value
 
 return random_result;
 end;
 
 $$ language plpgsql;
 ```
-This query could be shorter by using `order by random()`, but for performance reasons i chose `floor(random() * count(*))`
+This query could be shorter by using `order by random()`, but for performance reasons I chose `floor(random() * count(*))`.
 
 #### Execution plan for `floor(random() * count(*))` implementation
 
@@ -48,14 +53,15 @@ This query could be shorter by using `order by random()`, but for performance re
 explain analyse 
 select
 random_value.id,
-random_value.foo,
+random_value.foo
 from
 (
   select
     t.id, t.foo
-from
-test t offset floor(random() * ( select count(*) from test ))
-limit 1 ) as random_value
+from test t 
+offset floor(random() * ( select count(*) from test ))
+limit 1) 
+as random_value
 	
 Limit  (cost=2996.50..2996.52 rows=1 width=25) (actual time=14.053..14.054 rows=1 loops=1)
   InitPlan 1 (returns $0)
@@ -69,17 +75,18 @@ Execution Time: 14.072 ms
 #### Execution plan for `order by random()` implementation
 
 ```sql
-explain analyse select
-	random_value.id as id,
-	random_value.foo as foo
+explain analyse 
+select
+	random_value.id,
+	random_value.foo
 from
-	(
+(
 	select
 		t.id, t.foo
-	from
-		test t
-	order by random()
-	limit 1 ) as random_value
+from test t
+order by random() 
+limit 1) 
+as random_value
 	
 Subquery Scan on random_value  (cost=3246.74..3246.75 rows=1 width=25) (actual time=31.678..31.679 rows=1 loops=1)
   ->  Limit  (cost=3246.74..3246.74 rows=1 width=33) (actual time=31.676..31.677 rows=1 loops=1)
@@ -91,9 +98,9 @@ Planning Time: 0.174 ms
 Execution Time: 31.714 ms
 ```
 
-As you can see the queries complexity differences are significant.
+As can be seen the queries complexity differences are significant.
 
-### Invocation
+### Call in code
 
 ```kotlin
 fun findRandomBySeed(seed: Double): List<Test> =

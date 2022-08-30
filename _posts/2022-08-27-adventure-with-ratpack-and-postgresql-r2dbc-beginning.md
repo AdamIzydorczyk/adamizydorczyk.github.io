@@ -23,6 +23,9 @@ Additionally to tests instead of JDBC based connection i choosed R2DBC driver to
 - `r2dbc-postgresql:0.8.12.RELEASE`
 - `spring-boot-starter-data-jdbc:2.7.2`
 - `spring-boot-starter-data-web:2.7.2`
+- `postgres:14.5`
+
+---
 
 ### Implementation
 
@@ -87,7 +90,7 @@ class TestSimulation extends Simulation {
     setUp(scn.inject(atOnceUsers(USERS)).protocols(httpProtocol))
 }
 ```
-
+---
 ### Results - 1000 requests
 
 #### Ratpack + R2DBC - 10 x 10 requests - 10k elements in table
@@ -131,6 +134,8 @@ Moreover on attempt with setting up more requests, began to appear exceptions `i
 Which was due to not reusing connection by default in any ways by r2dbc driver.
 
 To fix it i added library `io.r2dbc:r2dbc-pool:0.9.1.RELEASE` that provides connection pool like indicate name :)
+
+---
 
 ### Results - 10000 requests
 

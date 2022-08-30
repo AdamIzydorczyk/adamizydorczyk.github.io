@@ -13,10 +13,16 @@ The problematic part is that into validator is passed only value of field or cla
 Fortunately exists workaround for that problem.
 
 Example with validator that preventing of using same id on field as in request path.
+
+---
+
 #### Versions
 - `kotlin:1.6.21`
 - `spring-boot-starter-validation:2.7.2`
 - `spring-boot-starter-web:2.7.2`
+
+---
+
 #### Annotation
 ```kotlin
 @MustBeDocumented
